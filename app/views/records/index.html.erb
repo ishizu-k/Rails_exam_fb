@@ -1,0 +1,15 @@
+<h2>投稿一覧</h2>
+
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
+
+<% @records.each do |record| %>
+  <tr>
+    <td><%= record.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新規投稿', new_record_path %>

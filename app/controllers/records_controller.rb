@@ -12,7 +12,8 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      redirect_to records_path, notice: "投稿しました"
+      flash[:notice] = '投稿しました！'
+      redirect_to records_path
     else
       render 'new'
     end
@@ -23,7 +24,8 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      redirect_to records_path, notice: "編集しました"
+      flash[:notice] = '編集しました！'
+      redirect_to records_path
     else
       render 'edit'
     end

@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :set_record, only: [:edit, :update]
+  before_action :set_record, only: [:edit, :update, :destroy]
 
   def index
     @records = Record.all
@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      flash[:notice] = '投稿しました！'
+      flash[:notice] = '投稿しました'
       redirect_to records_path
     else
       render 'new'
@@ -24,11 +24,17 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      flash[:notice] = '編集しました！'
+      flash[:notice] = '編集しました'
       redirect_to records_path
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @record.destroy
+    flash[:notice] = '削除しました'
+    redirect_to records_path
   end
 
   private

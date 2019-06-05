@@ -1,5 +1,16 @@
 <h2>投稿する</h2>
 <%= form_with(model: @record, local: true) do |form| %>
+<% if @record.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @record.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @record.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <div class="record_title">
     <%= form.label :本文 %>
     <%= form.text_field :content %>

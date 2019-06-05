@@ -8,8 +8,12 @@ class RecordsController < ApplicationController
   end
 
   def create
-    Record.create(record_params)
-    redirect_to records_path
+    @record = Record.new(record_params)
+    if @record.save
+      redirect_to records_path, notice: "投稿しました"
+    else
+      render 'new'
+    end
   end
 
   private

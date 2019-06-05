@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+  before_action :set_record, only: [:edit, :update]
+
   def index
     @records = Record.all
   end
@@ -17,11 +19,9 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @record = Record.find(params[:id])
   end
 
   def update
-    @record = Record.find(params[:id])
     if @record.update(record_params)
       redirect_to records_path, notice: "編集しました"
     else
@@ -33,6 +33,10 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:content)
+  end
+
+  def set_record
+    @record = Record.find(params[:id])
   end
 
 end

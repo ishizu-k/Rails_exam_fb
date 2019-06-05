@@ -1,4 +1,4 @@
-<h2>投稿する</h2>
+<h2>編集する</h2>
 <%= form_with(model: @record, local: true) do |form| %>
 <% if @record.errors.any? %>
   <div id="error_explanation">
@@ -17,5 +17,3 @@
   </div>
   <%= form.submit %>
 <% end %>
-
-<%= link_to '戻る', records_path %>

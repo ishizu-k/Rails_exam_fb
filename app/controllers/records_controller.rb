@@ -37,6 +37,19 @@ class RecordsController < ApplicationController
     redirect_to records_path
   end
 
+  def confirm
+    if params[:id].nil?
+      @record = Record.new(record_params)
+    else
+      set_record
+      if @record.valid?
+        #binding.pry
+        @record.content = record_params[:content]
+        render  'confirm'
+      end
+    end
+  end
+
   private
 
   def record_params

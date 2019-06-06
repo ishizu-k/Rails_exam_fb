@@ -14,6 +14,4 @@ module RecordsHelper
       edit_record_path
     end
   end
-
-
 end

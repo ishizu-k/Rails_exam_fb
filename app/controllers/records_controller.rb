@@ -47,9 +47,11 @@ class RecordsController < ApplicationController
   def confirm
     if params[:id].nil?
       @record = Record.new(record_params)
+      render :new if @record.invalid?
     else
       set_record
       @record.content = record_params[:content]
+      render :edit if @record.invalid?
     end
   end
 

@@ -10,9 +10,15 @@
   </div>
 <% end %>
 
-  <div class="record_title">
-    <%= form.label :本文 %>
+  <div class="record">
+    <%= form.label :内容 %>
     <%= form.text_field :content %>
+  </div>
+  <div class="record">
+    <%= form.label :画像 %>
+    <%= image_tag(@record.image.url) if @record.image && @record.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
   <%= form.submit "確認する"%>
 <% end %>

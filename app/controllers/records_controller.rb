@@ -58,7 +58,7 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:content)
+    params.require(:record).permit(:content, :image, :image_cache)
   end
 
   def set_record

@@ -6,7 +6,11 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @record = Record.new
+    if params[:back]
+      @record = Record.new(record_params)
+    else
+      @record = Record.new
+    end
   end
 
   def create
@@ -20,6 +24,9 @@ class RecordsController < ApplicationController
   end
 
   def edit
+    if params[:back]
+      @record.content = record_params[:content]
+    end
   end
 
   def update
@@ -42,11 +49,7 @@ class RecordsController < ApplicationController
       @record = Record.new(record_params)
     else
       set_record
-      if @record.valid?
-        #binding.pry
-        @record.content = record_params[:content]
-        render  'confirm'
-      end
+      @record.content = record_params[:content]
     end
   end
 

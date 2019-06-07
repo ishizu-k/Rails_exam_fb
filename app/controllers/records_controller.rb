@@ -26,6 +26,7 @@ class RecordsController < ApplicationController
   def edit
     if params[:back]
       @record.content = record_params[:content]
+      @record.image_cache = record_params[:image_cache]
     end
   end
 
@@ -51,6 +52,8 @@ class RecordsController < ApplicationController
     else
       set_record
       @record.content = record_params[:content]
+      @record.image = record_params[:image]
+      @record.image_cache = record_params[:image_cache]
       render :edit if @record.invalid?
     end
   end

@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @record = Record.new(record_params)
+    @record = current_user.records.build(record_params)
     if @record.save
       flash[:notice] = '投稿しました'
       redirect_to records_path
@@ -47,7 +47,7 @@ class RecordsController < ApplicationController
 
   def confirm
     if params[:id].nil?
-      @record = Record.new(record_params)
+      @record = current_user.records.build(record_params)
       render :new if @record.invalid?
     else
       set_record

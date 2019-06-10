@@ -32,7 +32,10 @@ ul{
   padding: 20px 0 10px 0;
   height: 50px;
   color :black;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
+  a:link { color: #fff; text-decoration: none; }
+  a:visited { color: #fff; text-decoration: none; }
+  a:hover { color: #fff; font-weight: bold; text-decoration: none; }
 }
 
 header {

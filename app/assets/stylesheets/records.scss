@@ -1,3 +1,34 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main {
+  width: 700px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: gray;
+}
+
+table {
+  width: 700px;
+}
+
+
+
+.box{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: gray;
+  background: #FFF;
+  border: solid 3px gray;
+  border-radius: 10px;
+}
+.box p {
+    margin: 0;
+    padding: 0;
+}
+
+.icon {
+  text-align: right;
+}

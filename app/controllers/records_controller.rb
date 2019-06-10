@@ -2,7 +2,7 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:edit, :update, :destroy]
 
   def index
-    @records = Record.all
+    @records = Record.all.order(created_at: :desc)
   end
 
   def new

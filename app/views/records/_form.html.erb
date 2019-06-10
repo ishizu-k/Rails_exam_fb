@@ -1,18 +1,19 @@
+<div class= main>
 <%= form_with(model: @record, local: true, url: choose_new_or_edit) do |form| %>
 <% if @record.errors.any? %>
   <div id="error_explanation">
-    <h2><%= @record.errors.count %>件のエラーがあります。</h2>
-    <ul>
-    <% @record.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% @record.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
 
   <div class="record">
-    <%= form.label :内容 %>
-    <%= form.text_field :content %>
+    <%= form.text_area :content, size: "80x10" %>
   </div>
   <div class="record">
     <%= form.label :画像 %>
@@ -20,7 +21,9 @@
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
+  <br>
   <%= form.submit "確認する"%>
 <% end %>
-
+<br>
 <%= link_to '戻る', records_path %>
+</div>

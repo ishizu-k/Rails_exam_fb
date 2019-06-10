@@ -7,34 +7,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<div class="container">
-  <header class>
-    <p class="header">facebook clone</p>
-  <nav class="menu">
-    <ul class="row">
-      <li class="col-md-3"><%= link_to "一覧", records_path %></li>
-      <li class="col-md-3"><%= link_to '新規投稿', new_record_path %></li>
+  <div class="container">
+    <header class>
+      <p class="header">facebook clone</p>
+      <nav class="menu">
+        <ul class="row">
+          <li class="col-md-3"><%= link_to "一覧", records_path %></li>
+          <li class="col-md-3"><%= link_to '新規投稿', new_record_path %></li>
 
-      <% if logged_in? %>
-        <li class="col-md-3"><%= link_to "プロフィール", user_path(current_user.id) %></li>
-        <li class="col-md-3"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-      <% else %>
-        <li class="col-md-3"><%= link_to "アカウント作成", new_user_path %></li>
-        <li class="col-md-3"><%= link_to "ログイン", new_session_path %></li>
-      <% end %>
-    </ul>
-  </nav>
-  </header>
+          <% if logged_in? %>
+            <li class="col-md-3"><%= link_to "プロフィール", user_path(current_user.id) %></li>
+            <li class="col-md-3"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+          <% else %>
+            <li class="col-md-3"><%= link_to "アカウント作成", new_user_path %></li>
+            <li class="col-md-3"><%= link_to "ログイン", new_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="flash">
+    <div class="flash">
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
+      <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
-  </div>
+    </div>
 
     <%= yield %>
 
-</div>
+  </div>
 
   <footer>
     <p>201906</p>

@@ -38,6 +38,12 @@ ul{
   a:hover { color: #fff; font-weight: bold; text-decoration: none; }
 }
 
+.main {
+  a:link { color: gray; text-decoration: none; }
+  a:visited { color: gray; text-decoration: none; }
+  a:hover { color: gray; font-weight: bold; text-decoration: none; }
+}
+
 header {
   color: #fff;
   text-align: center;

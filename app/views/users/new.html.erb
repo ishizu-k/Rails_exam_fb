@@ -1,40 +1,39 @@
 <div class= main>
-<h3>アカウント作成</h3>
-<%= form_with(model: @user, local: true) do |f| %>
+  <h3>アカウント作成</h3>
+  <%= form_with(model: @user, local: true) do |f| %>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger" role="alert">
-      <h4><%= @user.errors.count %> 件のエラーが発生したため、このアカウントは登録されませんでした。</h4>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <h4><%= @user.errors.count %> 件のエラーが発生したため、このアカウントは登録されませんでした。</h4>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-<% end %>
+    <% end %>
 
-<table class="user_form">
-  <tr>
-    <th><%= f.label :名前 %></th>
-    <td><%= f.text_field :name, size: "40" %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :メールアドレス %></th>
-    <td><%= f.email_field :email, size: "40" %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :パスワード %></th>
-    <td><%= f.password_field :password, size: "40" %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :パスワードの確認 %></th>
-    <td><%= f.password_field :password_confirmation, size: "40" %></td>
-  </tr>
-</table>
-
+  <table class="user_form">
+    <tr>
+      <th><%= f.label :名前 %></th>
+      <td><%= f.text_field :name, size: "40" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <td><%= f.email_field :email, size: "40" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :パスワード %></th>
+      <td><%= f.password_field :password, size: "40" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :パスワードの確認 %></th>
+      <td><%= f.password_field :password_confirmation, size: "40" %></td>
+    </tr>
+  </table>
   <br>
   <%= f.submit "アカウント作成" %>
-<% end %>
+  <% end %>
 </div>
